@@ -1,3 +1,27 @@
 {
-  "Generator.selectLanguage": "Select Language"
+  "app.selectLanguage": "Select Language",
+  "app.polish": "Polish",
+  "app.english": "English",
+  "app.myOrganization": "My organization",
+  "app.firstStep": "First Step",
+  "app.chooseDoor": "Choose Door",
+  "app.secondStep": "Second Step",
+  "app.chooseDivision": "Choose Door Division",
+  "app.thirdStep": "Third Step",
+  "app.chooseColor": "Choose Color",
+  "app.nextStep": "Next Step",
+  "app.prevStep": "Back",
+  "app.doorType": "Door Type",
+  "app.singleDoor": "Single Door",
+  "app.doubleDoor": "Double Door",
+  "app.doorSize": "Door size",
+  "app.width": "Width",
+  "app.height": "Height",
+  "app.doorDivision": "Door division",
+  "app.numberOfBeams": "Number of beams",
+  "app.numberOfPosts": "Number of posts",
+  "app.chooseAColor": "Choose a color",
+  "app.black": "Black",
+  "app.gray": "Gray",
+  "app.white": "White"
 }

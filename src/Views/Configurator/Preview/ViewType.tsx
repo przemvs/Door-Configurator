@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+type ButtonProps = {
+    active: boolean
+}
+
 const ViewType = styled('div')`
   position: absolute;
   top: 20px;
@@ -9,10 +13,11 @@ const ViewType = styled('div')`
 `
 
 const Button = styled('button')`
-  background-color: #CBCBCB;
+  background-color: ${(p: ButtonProps) => p.active ? '#fff' : '#CBCBCB'};
   border: 2px solid #6F91AA;
   
   color: #6F91AA;
+  cursor: pointer;
   font-size: 14px;
   line-height: 19px;
   

@@ -1,3 +1,27 @@
 {
-  "Generator.selectLanguage": "Wybierz język"
+  "app.selectLanguage": "Wybierz język",
+  "app.polish": "Polski",
+  "app.english": "Angielski",
+  "app.myOrganization": "Organizacja",
+  "app.firstStep": "Krok pierwszy",
+  "app.chooseDoor": "Wybierz drzwi",
+  "app.secondStep": "Krok drugi",
+  "app.chooseDivision": "Wybierz podział drzwi",
+  "app.thirdStep": "Krok trzeci",
+  "app.chooseColor": "Wybierz kolor",
+  "app.nextStep": "Dalej",
+  "app.prevStep": "Wróć",
+  "app.doorType": "Typ drzwi",
+  "app.singleDoor": "Pojedyńcze drzwi",
+  "app.doubleDoor": "Podwójne drzwi",
+  "app.doorSize": "Rozmiar drzwi",
+  "app.width": "Szerokość",
+  "app.height": "Wysokość",
+  "app.doorDivision": "Podział drzwi",
+  "app.numberOfBeams": "Liczba belek",
+  "app.numberOfPosts": "Liczba słupków",
+  "app.chooseAColor": "Wybierz kolor",
+  "app.black": "Czarny",
+  "app.gray": "Szary",
+  "app.white": "Biały"
 }

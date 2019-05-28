@@ -1,8 +1,18 @@
 import styled from 'styled-components'
 
-const Pallette = styled('div')`
-  flex: 0 0 100%;
+type PaletteProps = {
+    color: string
+}
+
+const Palette = styled('div')`
+  background-color: ${(p: PaletteProps) => p.color};
   order: -1;
+  
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin-left: 8px;
+  margin-bottom: 8px;
 `
 
-export default Pallette
+export default Palette

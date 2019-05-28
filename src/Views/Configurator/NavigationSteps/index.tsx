@@ -1,37 +1,47 @@
 import React from 'react'
-import {withRouter} from "react-router-dom";
+import {RouteComponentProps, withRouter} from "react-router-dom";
 
 import {Circle, Details, Title, SubTitle} from "./StepDetails";
 import {StyledSteps, Line, Step} from "./StyledStep";
+import {FormattedMessage} from "react-intl";
 
-const Steps: React.FC = (props) => {
-    console.log(props)
-    return (
-        <StyledSteps>
-            <Line />
-            <Step>
-                <Circle/>
-                <Details>
-                    <Title>First Step</Title>
-                    <SubTitle>Choose Door</SubTitle>
-                </Details>
-            </Step>
-            <Step>
-                <Circle/>
-                <Details>
-                    <Title>Second Step</Title>
-                    <SubTitle>Choose door division</SubTitle>
-                </Details>
-            </Step>
-            <Step>
-                <Circle/>
-                <Details>
-                    <Title>Third Step</Title>
-                    <SubTitle>Choose Color</SubTitle>
-                </Details>
-            </Step>
-        </StyledSteps>
-    )
-}
+const NavigationSteps: React.FC<RouteComponentProps> = ({location}) => (
+    <StyledSteps>
+        <Line/>
+        <Step>
+            <Circle active={location.pathname.includes('first-step')}/>
+            <Details>
+                <Title>
+                    <FormattedMessage id="app.firstStep" defaultMessage="First Step" />
+                </Title>
+                <SubTitle>
+                    <FormattedMessage id="app.chooseDoor" defaultMessage="Choose Door" />
+                </SubTitle>
+            </Details>
+        </Step>
+        <Step>
+            <Circle active={location.pathname.includes('second-step')}/>
+            <Details>
+                <Title>
+                    <FormattedMessage id="app.secondStep" defaultMessage="Second Step" />
+                </Title>
+                <SubTitle>
+                    <FormattedMessage id="app.chooseDivision" defaultMessage="Choose door division" />
+                </SubTitle>
+            </Details>
+        </Step>
+        <Step>
+            <Circle active={location.pathname.includes('third-step')}/>
+            <Details>
+                <Title>
+                    <FormattedMessage id="app.thirdStep" defaultMessage="Third Step" />
+                </Title>
+                <SubTitle>
+                    <FormattedMessage id="app.chooseColor" defaultMessage="Choose color" />
+                </SubTitle>
+            </Details>
+        </Step>
+    </StyledSteps>
+)
 
-export default withRouter(Steps)
+export default withRouter(NavigationSteps)

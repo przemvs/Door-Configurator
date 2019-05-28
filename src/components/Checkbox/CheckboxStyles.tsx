@@ -43,4 +43,4 @@ const Text = styled('span')`
     line-height: 21px;
 `
 
-export { StyledCheckbox, Text }
+export {StyledCheckbox, Text}

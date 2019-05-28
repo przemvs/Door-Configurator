@@ -7,60 +7,72 @@ import LoginContainer from "./LoginContainer";
 import Heading from "./Heading";
 import LoginForm from "./LoginForm";
 import {userService} from "../../state/services/user.service";
+import Loader from '../../components/Loader';
 
 interface User {
-    email: string,
-    password: string,
-    keepLogged?: boolean
+  email: string,
+  password: string,
+  keepLogged?: boolean
 }
 
 const userInitialState = {
-    email: '',
-    password: '',
-    keepLogged: false
+  email: '',
+  password: '',
+  keepLogged: false
 }
 
-type LoginResponse = {
-    token: string
-}
+const loginTimeout = 2000
 
 const Login: React.FC<RouteComponentProps> = ({history}) => {
-    const [user, setUser] = useState<User>(userInitialState)
-    const [error, setError] = useState<boolean>(false)
+  const [user, setUser] = useState<User>(userInitialState)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<boolean>(false)
 
-    const handleLogin: Function = async () => {
-        const res: Promise<string> = await userService.login(user.email, user.password)
-        const token: Promise<string> = res && res.token
+  const handleLogin = async () => {
+    const res = await userService.login(user.email, user.password)
+    // @ts-ignore
+    const token = res && res.token
 
-        if (token) {
-            if (!user.keepLogged) {
-                sessionStorage.setItem('token', token)
-            } else {
-                localStorage.setItem('token', token)
-            }
-
-            history.push('/configurator')
+    setLoading(true)
+    setTimeout(() => {
+      // @ts-ignore
+      if (token) {
+        if (!user.keepLogged) {
+          // @ts-ignore
+          sessionStorage.setItem('token', token)
         } else {
-            setError(true)
-            console.log('error')
+          // @ts-ignore
+          localStorage.setItem('token', token)
         }
-    }
 
-    return (
-        <>
-            {error && <Error>Invalid email or password</Error>}
-            <Container>
-                <LoginContainer>
-                    <Heading>Log in</Heading>
-                    <LoginForm
-                        handleLogin={handleLogin}
-                        user={user}
-                        setUser={setUser}
-                    />
-                </LoginContainer>
-            </Container>
-        </>
-    )
+        setLoading(false)
+        history.push('/configurator')
+      } else {
+        setLoading(false)
+        setError(true)
+        console.log('error')
+      }
+    }, loginTimeout)
+
+  }
+
+  return (
+    <>
+      {loading && <Loader/>}
+      {error && <Error>Invalid email or password</Error>}
+      <Container>
+        <LoginContainer>
+          <Heading>Log in</Heading>
+          <LoginForm
+            handleLogin={handleLogin}
+            user={user}
+            setUser={setUser}
+            loading={loading}
+          />
+        </LoginContainer>
+      </Container>
+    </>
+  )
 }
 
 export default withRouter(Login)

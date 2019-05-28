@@ -28,27 +28,28 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App: React.FC = () => {
-    addLocaleData([...en, ...pl])
+  addLocaleData([...en, ...pl])
 
-    const [language, setLanguage] = useState(navigator.language)
-    const messages = { 'pl-PL': translationPl, 'en': translationEn }
+  const [language, setLanguage] = useState(navigator.language)
+  const messages = {'pl-PL': translationPl, 'en': translationEn}
 
-    return (
-        <IntlProvider key={language} locale={language} messages={messages[language]}>
-            <>
-                <GlobalStyle/>
-                <Header currentLanguage={language} setLanguage={setLanguage} />
-                <Router>
-                    <Switch>
-                        <Route exact path="/" component={Login}/>
-                        <ProtectedRoute path="/configurator" component={Configurator}/>
+  return (
+    // @ts-ignore
+    <IntlProvider key={language} locale={language} messages={messages[language]}>
+      <>
+        <GlobalStyle/>
+        <Header currentLanguage={language} setLanguage={setLanguage}/>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Login}/>
+            <ProtectedRoute path="/configurator" component={Configurator}/>
 
-                        <Redirect from='*' to='/'/>
-                    </Switch>
-                </Router>
-            </>
-        </IntlProvider>
-    )
+            <Redirect from='*' to='/'/>
+          </Switch>
+        </Router>
+      </>
+    </IntlProvider>
+  )
 }
 
 export default App;

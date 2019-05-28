@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 type InputProps = {
-    hasActions?: boolean
+  hasActions?: boolean
 }
 
 const StyledInput = styled('input')`

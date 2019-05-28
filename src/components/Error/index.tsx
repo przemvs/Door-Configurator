@@ -22,9 +22,9 @@ const ErrorMessage = styled('span')`
 `
 
 const Error: React.FC = ({children}) => (
-    <StyledError>
-        <ErrorMessage>{children}</ErrorMessage>
-    </StyledError>
+  <StyledError>
+    <ErrorMessage>{children}</ErrorMessage>
+  </StyledError>
 )
 
 export default Error

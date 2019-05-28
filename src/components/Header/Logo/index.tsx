@@ -12,11 +12,11 @@ const StyledLogo = styled('div')`
 `
 
 const Logo: React.FC = () => {
-    return (
-        <StyledLogo>
-            <img src={logo} alt="APPLOVER" />
-        </StyledLogo>
-    )
+  return (
+    <StyledLogo>
+      <img src={logo} alt="APPLOVER"/>
+    </StyledLogo>
+  )
 }
 
 export default Logo
